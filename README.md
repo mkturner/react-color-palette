@@ -1,4 +1,4 @@
-# Reacg Color Palette
+# React Color Palette
 
 This project will use React to display tints (lighter) and shades (darker) of a specified color.
 
