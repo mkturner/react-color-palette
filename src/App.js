@@ -13,8 +13,15 @@ function App() {
   const handleSubmit = (e) => {
     // prevent default page refresh
     e.preventDefault();
-    // check contents
-    console.log(e);
+    // validation with values.js
+    try {
+      let colors = new Values(color).all(10);
+      console.log(colors);
+    } catch (error) {
+      setError(true);
+      // display error on console
+      console.log(console.error);
+    }
   };
 
   return (
@@ -27,6 +34,7 @@ function App() {
             value={color}
             onChange={(e) => setColor(e.target.value)}
             placeholder='#0000ff'
+            className={`${error ? 'error' : null}`}
           />
           <button className='btn' type='submit'>
             Button
