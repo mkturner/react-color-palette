@@ -11,7 +11,7 @@ const SingleColor = ({ rgb, weight, index, hex }) => {
   console.log(bgColor);
 
   // compute hex value
-  const hexCode = rgbToHex(...rgb);
+  // const hexCode = rgbToHex(...rgb);
 
   return (
     <article
@@ -19,7 +19,7 @@ const SingleColor = ({ rgb, weight, index, hex }) => {
       style={{ backgroundColor: `rgb(${bgColor})` }}
     >
       <p className='percent-value'>{weight}%</p>
-      <p className='color-value'>{hexCode}</p>
+      <p className='color-value'>{hex}</p>
     </article>
   );
 };
