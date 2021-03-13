@@ -7,7 +7,8 @@ function App() {
   // set up state hooks to use later
   const [color, setColor] = useState('');
   const [error, setError] = useState(false);
-  const [list, setList] = useState([]);
+  // use for default value, and then for entered colors
+  const [list, setList] = useState(new Values('#aaffaa').all(10));
 
   // handleSubmit function
   const handleSubmit = (e) => {
@@ -34,7 +35,7 @@ function App() {
             type='text'
             value={color}
             onChange={(e) => setColor(e.target.value)}
-            placeholder='#0000ff'
+            placeholder='Hex color i.e. #aaffaa'
             className={`${error ? 'error' : null}`}
           />
           <button className='btn' type='submit'>
@@ -44,8 +45,9 @@ function App() {
       </section>
       <section className='colors'>
         {list.map((color, index) => {
-          console.log(color);
-          return <SingleColor key={index} {...color} index={index} />;
+          return (
+            <SingleColor key={index} {...color} index={index} hex={color.hex} />
+          );
         })}
       </section>
     </>
